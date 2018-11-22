@@ -15,7 +15,7 @@ The evaluation metric implementation is available in the class `OpenImagesDetect
 3. Filter the rows corresponding to the validation set images you want to use and store the results in the same CSV format.
 4. Run the following command to create hierarchical expansion of the bounding boxes annotations:
 
-```
+```bash
 HIERARCHY_FILE=/path/to/bbox_labels_500_hierarchy.json
 BOUNDING_BOXES=/path/to/challenge-2018-train-annotations-bbox
 IMAGE_LABELS=/path/to/challenge-2018-train-annotations-human-imagelabels
@@ -35,7 +35,7 @@ python object_detection/dataset_tools/oid_hierarchical_labels_expansion.py \
 
 After step 4 you will have produced the ground-truth files suitable for running 'OID Challenge Object Detection Metric 2018' evaluation.
 
-```
+```bash
 INPUT_PREDICTIONS=/path/to/detection_predictions.csv
 OUTPUT_METRICS=/path/to/output/metrics/file
 
@@ -56,7 +56,7 @@ python models/research/object_detection/metrics/oid_od_challenge_evaluation.py \
 
 5. Produce tf.Example files suitable for running inference: {value=5}
 
-```
+```bash
 RAW_IMAGES_DIR=/path/to/raw_images_location
 OUTPUT_DIR=/path/to/output_tfrecords
 
@@ -73,7 +73,7 @@ python object_detection/dataset_tools/create_oid_tf_record.py \
 
 7. Finally, run the evaluation script to produce the final evaluation result.
 
-```
+```bash
 INPUT_TFRECORDS_WITH_DETECTIONS=/path/to/tf_records_with_detections
 OUTPUT_CONFIG_DIR=/path/to/configs
 
@@ -108,7 +108,7 @@ The [Visual Relationships Detection metrics](https://storage.googleapis.com/open
 2. Filter the rows corresponding to the validation set images you want to use and store the results in the same CSV format.
 3. Run the follwing command to produce final metrics:
 
-```
+```bash
 INPUT_ANNOTATIONS_BOXES=/path/to/challenge-2018-train-vrd.csv
 INPUT_ANNOTATIONS_LABELS=/path/to/challenge-2018-train-vrd-labels.csv
 INPUT_PREDICTIONS=/path/to/predictions.csv

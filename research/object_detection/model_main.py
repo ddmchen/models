@@ -53,6 +53,10 @@ flags.DEFINE_boolean(
     'run_once', False, 'If running in eval-only mode, whether to run just '
     'one round of eval vs running continuously (default).'
 )
+flags.DEFINE_integer(
+    'eval_interval_secs', 600, 'Shortest evaluation interval in seconds. '
+    'If there is no new checkpoint created, evaluation will not occur.'
+)
 FLAGS = flags.FLAGS
 
 
@@ -99,6 +103,7 @@ def main(unused_argv):
         eval_on_train_input_fn,
         predict_input_fn,
         train_steps,
+        FLAGS.eval_interval_secs,
         eval_on_train_data=False)
 
     # Currently only a single Eval Spec is allowed.
